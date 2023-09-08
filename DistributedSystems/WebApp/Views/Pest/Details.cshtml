@@ -1,0 +1,58 @@
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Domain.Pest
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+
+<div>
+    <h4>Pest</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PestComment)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PestComment)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PestDiscoveryTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PestDiscoveryTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Plant)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Plant.PlantName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PestType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PestType.PestTypeName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PestSeverity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PestSeverity.PestSeverityName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+</body>
+</html>

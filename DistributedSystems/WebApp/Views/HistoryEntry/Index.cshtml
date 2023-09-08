@@ -1,0 +1,62 @@
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<Domain.HistoryEntry>
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EntryComment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EntryTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HistoryEntryType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Plant)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntryComment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntryTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HistoryEntryType.EntryTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Plant.PlantName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

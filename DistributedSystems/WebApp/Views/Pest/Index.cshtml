@@ -1,0 +1,68 @@
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<Domain.Pest>
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PestComment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PestDiscoveryTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Plant)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PestType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PestSeverity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PestComment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PestDiscoveryTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Plant.PlantName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PestType.PestTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PestSeverity.PestSeverityName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

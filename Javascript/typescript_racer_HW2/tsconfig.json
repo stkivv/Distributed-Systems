@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "module": "esnext",
+        "target": "es2017",
+        "strict": true,
+        "alwaysStrict": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "sourceMap": true,
+        "esModuleInterop": true,
+        "experimentalDecorators": true,
+        "removeComments": true,
+        "moduleResolution": "node",
+        "lib": [
+            "ESNext",
+            "DOM",
+            "DOM.Iterable",
+        ],
+        "plugins": [{ "name": "typescript-plugin-css-modules" }]
+    },
+    "include": [
+        "global.d.ts",
+        "./src/**/*",
+        "./src/**/*.png"
+    ],
+    "exclude": [
+        "node_modules",
+    ]
+}
